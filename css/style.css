@@ -1488,14 +1488,15 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .carta-focus-card {
     flex-shrink: unset;
     width: auto;
-    height: 44vw;
+    height: auto;
     scroll-snap-align: unset;
     border-radius: 0;
+    position: relative;
   }
   /* Hide cards 5–8 on mobile */
   .carta-focus-card:nth-child(n+5) { display: none; }
-  .carta-focus-card img { height: 100%; width: 100%; object-fit: cover; }
-  .carta-focus-info { opacity: 1 !important; transform: none !important; }
+  .carta-focus-card img { width: 100%; height: auto; object-fit: unset; display: block; }
+  .carta-focus-info { opacity: 1 !important; transform: none !important; position: absolute; }
   .carta-focus-name { font-size: 0.78rem; }
 
   /* ── Bridge ── */
