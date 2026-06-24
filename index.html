@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Pappardella — Restaurante Italiano · Puerto Calero, Lanzarote</title>
+  <meta name="description" content="Auténtica cocina italiana con vistas al puerto deportivo de Lanzarote. Pasta fresca artesanal, mariscos frescos y vinos seleccionados. Reserva tu mesa." />
+  <meta name="keywords" content="restaurante italiano lanzarote, pasta fresca, puerto calero, la pappardella, cocina italiana, mariscos" />
+  <meta property="og:title" content="La Pappardella — Restaurante Italiano · Puerto Calero" />
+  <meta property="og:description" content="Auténtica cocina italiana con vistas al puerto deportivo de Lanzarote." />
+  <meta name="robots" content="index, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══ LOADER ═══ -->
+  <div id="loader">
+    <div class="loader-brand">
+      <span class="loader-la">la</span>
+      <span class="loader-name">Pappardella</span>
+    </div>
+    <div class="loader-tagline">Puerto Calero · Lanzarote</div>
+  </div>
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="site-header" id="site-header">
+    <nav class="nav-inner">
+      <a href="#" class="nav-logo" id="nav-logo-link">
+        <span class="logo-la">la</span>
+        <span class="logo-name">Pappardella</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#historia-section">Historia</a></li>
+        <li><a href="#menu-section">Carta</a></li>
+        <li><a href="#vinos-section">Vinos</a></li>
+        <li><a href="#" id="experiencia-nav-btn" class="nav-experiencia">Experiencia</a></li>
+        <li><a href="#reserva-section">Reservas</a></li>
+      </ul>
+      <a href="tel:+34928513614" class="nav-cta">Reservar Mesa</a>
+      <!-- Language switcher -->
+      <div class="lang-switcher" id="lang-switcher">
+        <button class="lang-btn" id="lang-btn" aria-label="Seleccionar idioma">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/><path d="M2 12h20"/></svg>
+          <span id="lang-current">ES</span>
+          <svg class="lang-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="lang-dropdown" id="lang-dropdown">
+          <button class="lang-option active" data-lang="es">🇪🇸 Español</button>
+          <button class="lang-option" data-lang="en">🇬🇧 English</button>
+          <button class="lang-option" data-lang="fr">🇫🇷 Français</button>
+          <button class="lang-option" data-lang="de">🇩🇪 Deutsch</button>
+          <button class="lang-option" data-lang="it">🇮🇹 Italiano</button>
+        </div>
+      </div>
+      <button class="nav-burger" id="nav-burger" aria-label="Menú">
+        <span></span><span></span>
+      </button>
+    </nav>
+    <div class="nav-mobile" id="nav-mobile">
+      <ul>
+        <li><a href="#historia-section">Historia</a></li>
+        <li><a href="#menu-section">Carta</a></li>
+        <li><a href="#vinos-section">Vinos</a></li>
+        <li><a href="#" id="experiencia-mobile-btn">Experiencia</a></li>
+        <li><a href="#reserva-section">Reservas</a></li>
+      </ul>
+      <a href="tel:+34928513614" class="mobile-cta">Reservar Mesa</a>
+    </div>
+  </header>
+
+  <!-- ═══ HERO IMAGE ═══ -->
+  <div class="hero-bg-wrap">
+    <img src="Portada 1.jpg" id="hero-bg" class="hero-bg-img" alt="La Pappardella — Puerto Calero" />
+    <div class="hero-bg-overlay"></div>
+  </div>
+
+  <!-- ═══ HERO OVERLAY ═══ -->
+  <div id="hero-overlay">
+    <div class="hero-badge">Puerto Calero · Lanzarote</div>
+    <h1 class="hero-heading">
+      <span class="hero-word">Dal</span>
+      <span class="hero-word">Mare</span>
+      <span class="hero-word hero-italic">alla</span>
+      <span class="hero-word">Tavola</span>
+    </h1>
+    <p class="hero-tagline">Cocina italiana auténtica con vistas al océano Atlántico</p>
+    <div class="hero-ctas">
+      <a href="#historia-section" class="btn-primary">Descubrir</a>
+      <a href="#menu-section" class="btn-ghost">Ver Carta</a>
+    </div>
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+
+  <!-- ═══ DARK OVERLAY ═══ -->
+  <div id="dark-overlay"></div>
+
+  <!-- ═══ SCROLL CONTAINER — parallax sections ═══ -->
+  <div id="scroll-container">
+
+    <!-- S1: fade-up — origen + terraza unificados -->
+    <section class="scroll-section section-content align-left"
+             data-enter="10" data-leave="46" data-animation="fade-up">
+      <div class="section-inner">
+        <span class="section-label">001 / Origen</span>
+        <h2 class="section-heading">Donde Italia<br><em>se encuentra</em><br>con el Atlántico</h2>
+        <p class="section-body">Pasta fresca cada mañana, veleros al atardecer y el rumor eterno del océano. Un rincón de Italia en el corazón de Lanzarote, con vistas al puerto.</p>
+        <a href="#reserva-section" class="section-cta">Reservar terraza →</a>
+      </div>
+    </section>
+
+    <!-- S2: dark quote -->
+    <section class="scroll-section section-quote"
+             data-enter="44" data-leave="68" data-animation="fade-up">
+      <div class="quote-inner">
+        <span class="quote-mark">&ldquo;</span>
+        <blockquote class="quote-text section-heading">Cada plato que sale de nuestra cocina lleva el alma de Italia y el sabor del Atlántico.</blockquote>
+        <span class="quote-author section-label">— 25 años cocinando con pasión en Puerto Calero</span>
+      </div>
+    </section>
+
+    <!-- S3: clip-reveal + persist -->
+    <section class="scroll-section section-cta-scroll align-left"
+             data-enter="68" data-leave="100" data-animation="clip-reveal" data-persist="true">
+      <div class="section-inner">
+        <span class="section-label">Descubrir</span>
+        <h2 class="section-heading">Comienza<br><em>la experiencia</em></h2>
+        <p class="section-body">Descubre nuestra historia, carta y los sabores únicos de Lanzarote.</p>
+        <div class="cta-buttons">
+          <a href="#historia-section" class="btn-primary cta-button">Nuestra historia</a>
+          <a href="#menu-section" class="btn-ghost cta-button">Ver la carta</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       SECCIONES ESTÁTICAS
+  ═══════════════════════════════════════════════════════════ -->
+
+  <!-- ══ HISTORIA — animated collage + story modals ══ -->
+  <section class="static-section section-historia" id="historia-section">
+
+    <div class="hist-inner">
+
+      <!-- Left: animated text -->
+      <div class="hist-text">
+        <div class="hist-label" id="hist-label">
+          <span class="eyebrow-line"></span>001 — Nuestra Historia
+        </div>
+        <h2 class="hist-headline" id="hist-headline">
+          <span class="hist-w" data-dir="up">Una</span>
+          <span class="hist-w" data-dir="left">historia</span>
+          <span class="hist-w" data-dir="up">nacida</span>
+          <br>
+          <span class="hist-w" data-dir="right">entre</span>
+          <span class="hist-w hist-italic" data-dir="down">volcanes</span>
+          <br>
+          <span class="hist-w" data-dir="left">y</span>
+          <span class="hist-w" data-dir="up">olas</span>
+        </h2>
+        <div class="hist-body" id="hist-body">
+          <p>La Pappardella nació de una pasión irrenunciable: traer la autenticidad de la cocina italiana al lugar más inesperado del Atlántico. Lanzarote, con su paisaje volcánico único y su luz de otro mundo, se convirtió en el hogar perfecto para una cocina que habla de raíces y saber hacer.</p>
+          <p>Más de 25 años después, seguimos fieles a ese sueño: pasta fresca cada mañana, mariscos del Atlántico, y vinos nacidos del volcán.</p>
+        </div>
+        <div class="hist-cta" id="hist-cta">
+          <a href="#menu-section" class="btn-primary">Explorar la carta</a>
+          <a href="tel:+34928513614" class="btn-outline-dark">Reservar ya</a>
+        </div>
+        <p class="hist-photos-hint">Pulsa las fotos para descubrir nuestra historia →</p>
+      </div>
+
+      <!-- Right: animated photo collage -->
+      <div class="hist-collage" id="hist-collage">
+
+        <div class="hist-photo hist-photo-1" data-story="fachada" role="button" tabindex="0" aria-label="La historia de nuestra fachada">
+          <img src="Portada 2.jpg" alt="Fachada La Pappardella de noche" loading="lazy" />
+          <div class="hist-photo-overlay">
+            <span class="hist-photo-label">La Fachada</span>
+            <span class="hist-photo-hint">Ver historia →</span>
+          </div>
+        </div>
+
+        <div class="hist-photo hist-photo-2" data-story="terraza" role="button" tabindex="0" aria-label="La terraza con vistas al puerto">
+          <img src="Captura de pantalla 2026-06-24 a las 11.18.13.png" alt="Terraza con vistas al puerto" loading="lazy" />
+          <div class="hist-photo-overlay">
+            <span class="hist-photo-label">La Terraza</span>
+            <span class="hist-photo-hint">Ver historia →</span>
+          </div>
+        </div>
+
+        <div class="hist-photo hist-photo-3" data-story="cocina" role="button" tabindex="0" aria-label="La cocina artesanal">
+          <img src="Captura de pantalla 2026-06-24 a las 11.19.09.png" alt="Pappardelle artesanales" loading="lazy" />
+          <div class="hist-photo-overlay">
+            <span class="hist-photo-label">La Cocina</span>
+            <span class="hist-photo-hint">Ver historia →</span>
+          </div>
+        </div>
+
+        <!-- Decorative year badge -->
+        <div class="hist-year-badge" aria-hidden="true">
+          <span class="hist-year-num">25</span>
+          <span class="hist-year-txt">años</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Pillars strip -->
+    <div class="historia-pillars">
+      <div class="historia-pillar reveal-up" style="--delay:0s">
+        <span class="pillar-num">01</span>
+        <div class="pillar-line"></div>
+        <strong>Del Atlántico</strong>
+        <p>Mariscos traídos cada mañana del océano</p>
+      </div>
+      <div class="historia-pillar reveal-up" style="--delay:0.1s">
+        <span class="pillar-num">02</span>
+        <div class="pillar-line"></div>
+        <strong>Sabores Volcánicos</strong>
+        <p>Vinos de Malvasía en picón negro</p>
+      </div>
+      <div class="historia-pillar reveal-up" style="--delay:0.2s">
+        <span class="pillar-num">03</span>
+        <div class="pillar-line"></div>
+        <strong>Tradición Italiana</strong>
+        <p>Pasta artesanal elaborada cada mañana</p>
+      </div>
+      <div class="historia-pillar reveal-up" style="--delay:0.3s">
+        <span class="pillar-num">04</span>
+        <div class="pillar-line"></div>
+        <strong>Luz Única</strong>
+        <p>Reserva de la Biosfera UNESCO</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Story modals -->
+  <div class="story-backdrop" id="story-backdrop"></div>
+  <div class="story-modal" id="story-modal" role="dialog" aria-modal="true">
+    <div class="story-modal-img" id="story-modal-img"></div>
+    <div class="story-modal-content">
+      <button class="story-close" id="story-close" aria-label="Cerrar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="story-chapter" id="story-chapter"></div>
+      <div class="story-chapter-num" id="story-chapter-num"></div>
+    </div>
+  </div>
+
+  <!-- ══ CARTA — scroll-driven slide from right ══ -->
+  <section class="section-carta-pinned" id="menu-section">
+    <div class="carta-sticky">
+      <div class="carta-panel" id="carta-panel">
+
+        <!-- Left: static title column -->
+        <div class="carta-left">
+          <span class="carta-eyebrow">002 / Nuestra carta</span>
+          <h2 class="carta-title">Sabores<br>que<br><em>cuentan<br>historias</em></h2>
+          <p class="carta-desc">Pasta artesanal elaborada cada mañana, mariscos del Atlántico y los mejores ingredientes de temporada.</p>
+          <a href="menu.pdf" target="_blank" class="btn-primary carta-cta-btn">Menú Completo</a>
+          <div class="carta-scroll-hint">
+            <span>Descubre los platos →</span>
+          </div>
+        </div>
+
+        <!-- Right: FocusCards grid -->
+        <div class="carta-right">
+          <div class="carta-focus-grid" id="carta-focus-grid">
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.14.26.png" alt="Spaghetti alle Vongole" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Pasta · Mar</span>
+                <p class="carta-focus-name">Spaghetti alle Vongole</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.19.09.png" alt="Pappardelle al Ragù" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Pasta · Tierra</span>
+                <p class="carta-focus-name">Pappardelle al Ragù</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.18.56.png" alt="Tagliatelle alla Crema" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Pasta · Cremosa</span>
+                <p class="carta-focus-name">Tagliatelle alla Crema</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.17.53.png" alt="Pizza della Casa" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Pizza · Horno leña</span>
+                <p class="carta-focus-name">Pizza della Casa</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.18.46.png" alt="Gambas al Ajillo" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Mar · Cazuela</span>
+                <p class="carta-focus-name">Gambas al Ajillo</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.18.27.png" alt="Paella de Marisco" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Arroces · Especialidad</span>
+                <p class="carta-focus-name">Paella de Marisco</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.14.55.png" alt="Pulpo a la Brasa" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Mar · Brasa</span>
+                <p class="carta-focus-name">Pulpo a la Brasa</p>
+              </div>
+            </div>
+
+            <div class="carta-focus-card">
+              <img src="Captura de pantalla 2026-06-24 a las 11.22.38.png" alt="Tiramisú della Casa" loading="lazy" />
+              <div class="carta-focus-info">
+                <span class="carta-focus-cat">Postres · Tradición</span>
+                <p class="carta-focus-name">Tiramisú della Casa</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BRIDGE: carta → vinos ══ -->
+  <div class="carta-vinos-bridge">
+    <div class="bridge-inner">
+      <span class="bridge-line"></span>
+      <span class="bridge-text">El vino perfecto para cada plato</span>
+      <span class="bridge-line"></span>
+    </div>
+  </div>
+
+  <!-- ══ VINOS ══ -->
+  <section class="static-section section-vinos" id="vinos-section">
+    <div class="vinos-inner">
+      <div class="vinos-img reveal-from-left">
+        <img src="Captura de pantalla 2026-06-24 a las 11.14.48.png" alt="Selección de vinos" loading="lazy" />
+        <div class="vinos-img-deco"></div>
+      </div>
+      <div class="vinos-text">
+        <div class="vinos-eyebrow reveal-up"><span class="eyebrow-line"></span><span class="eyebrow">Bodega</span></div>
+        <h2 class="reveal-up">Vinos nacidos<br><em>del volcán</em></h2>
+        <p class="reveal-up">Lanzarote produce uno de los vinos más singulares del mundo: la Malvasía volcánica, cultivada en hoyos excavados en picón negro para retener la humedad de la niebla atlántica. En La Pappardella, celebramos este tesoro local junto a una cuidada selección de los mejores vinos italianos.</p>
+        <div class="vinos-grid reveal-up">
+          <div class="vino-item">
+            <span class="vino-flag">🌋</span>
+            <div>
+              <strong>DO Lanzarote</strong>
+              <span>Malvasía volcánica · Moscatel</span>
+            </div>
+          </div>
+          <div class="vino-item">
+            <span class="vino-flag">🇮🇹</span>
+            <div>
+              <strong>Toscana & Piemonte</strong>
+              <span>Barolo · Brunello · Chianti Classico</span>
+            </div>
+          </div>
+          <div class="vino-item">
+            <span class="vino-flag">🌊</span>
+            <div>
+              <strong>Blancos del Mar</strong>
+              <span>Vermentino · Verdicchio · Falanghina</span>
+            </div>
+          </div>
+          <div class="vino-item">
+            <span class="vino-flag">🥂</span>
+            <div>
+              <strong>Spumante</strong>
+              <span>Prosecco di Conegliano · Franciacorta</span>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-up" style="--delay:0.2s">
+          <a href="tel:+34928513614" class="btn-outline-dark">Consultar carta de vinos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ RESEÑAS ══ -->
+  <section class="static-section section-reviews">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="eyebrow">Lo que dicen</span>
+        <h2>Experiencias<br><em>que perduran</em></h2>
+      </div>
+    </div>
+    <div class="reviews-float-wrap" id="reviews-float">
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"La mejor pasta que he probado fuera de Italia. Los spaghetti alle vongole son sublimes y la vista al puerto hace que la experiencia sea mágica."</p><span class="review-author">— María García, Madrid</span></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Llevamos 10 años viniendo a Lanzarote y siempre acabamos en La Pappardella. La calidad es constante y el servicio es excelente."</p><span class="review-author">— John & Helen Williams, UK</span></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"El ragù de pappardelle es simplemente increíble, se nota que está cocinado con mucho tiempo y cariño. El ambiente del puerto es incomparable."</p><span class="review-author">— Carlos Martínez, Valencia</span></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Cena perfecta para celebrar nuestro aniversario. La terraza de noche con los yates y la música suave es una experiencia que repetiremos."</p><span class="review-author">— Ana & Javier Rodríguez</span></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"La pizza de masa madre es de otro nivel. Se nota el horno de leña y los ingredientes de calidad. Uno de los mejores restaurantes italianos que conozco."</p><span class="review-author">— Francesco Bianchi, Milano</span></div>
+      <div class="review-card"><div class="review-stars">★★★★★</div><p class="review-text">"Perfecto para ir con la familia. Los niños adoraron la pasta y los adultos disfrutamos de una botella de Malvasía local. ¡Absolutamente recomendado!"</p><span class="review-author">— Familia Pérez, Canarias</span></div>
+    </div>
+    <div class="ta-badge reveal-up">
+      <a href="https://www.tripadvisor.es/Restaurant_Review-g673239-d1231598-Reviews-Restaurante_La_Pappardella-Puerto_Calero_Lanzarote_Canary_Islands.html" target="_blank" rel="noopener" class="ta-badge-btn" id="ta-badge-link">
+        <span class="ta-logo">●</span>
+        <span id="ta-badge-text">Ver reseñas en TripAdvisor</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ CTA FINAL + SOCIAL ══ -->
+  <section class="static-section section-cta-final" id="reserva-section">
+    <div class="cta-final-inner reveal-up">
+      <div class="cta-final-img">
+        <img src="Portada 2.jpg" alt="La Pappardella de noche" loading="lazy" />
+        <div class="cta-final-overlay"></div>
+      </div>
+      <div class="cta-final-content">
+        <span class="eyebrow">Tu mesa te espera</span>
+        <h2>Una noche en<br><em>La Pappardella</em></h2>
+        <p>Reserva ahora y disfruta de la mejor cocina italiana con el Atlántico como telón de fondo. Cada visita, una historia que contar.</p>
+        <div class="cta-final-actions">
+          <a href="tel:+34928513614" class="btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.67A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+            Llamar ahora
+          </a>
+        </div>
+        <div class="cta-final-info">
+          <span>📍 Puerto Calero, Lanzarote</span>
+          <span>🕐 Todos los días · 12:30–23:00h</span>
+        </div>
+        <!-- Social links integradas -->
+        <div class="cta-social-row">
+          <span class="cta-social-label">Síguenos</span>
+          <a href="https://www.instagram.com/restaurantelapappardella/" target="_blank" rel="noopener" class="cta-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @restaurantelapappardella
+          </a>
+          <a href="https://www.facebook.com/people/restaurantelapappardella/100071028737150/" target="_blank" rel="noopener" class="cta-social-link">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            La Pappardella
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ — al final, antes del footer ══ -->
+  <section class="static-section section-faq">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="eyebrow">FAQ</span>
+        <h2>Preguntas<br><em>frecuentes</em></h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item reveal-up"><button class="faq-q">¿Es necesario reservar mesa? <span class="faq-icon">+</span></button><div class="faq-a"><p>Recomendamos reservar, especialmente en temporada alta y fines de semana. Puedes llamarnos directamente al +34 928 513 614. Nuestra terraza con vistas al puerto tiene capacidad limitada.</p></div></div>
+        <div class="faq-item reveal-up"><button class="faq-q">¿Tienen opciones para celíacos o vegetarianos? <span class="faq-icon">+</span></button><div class="faq-a"><p>Sí. Disponemos de pasta sin gluten bajo petición previa y una selección de platos vegetarianos. Consúltenos al reservar para preparar la mejor experiencia.</p></div></div>
+        <div class="faq-item reveal-up"><button class="faq-q">¿Cuáles son los horarios? <span class="faq-icon">+</span></button><div class="faq-a"><p>Abrimos todos los días. Almuerzo: 12:30–15:30h. Cena: 18:30–23:00h. En temporada alta ampliamos horarios. Consulta disponibilidad llamando al restaurante.</p></div></div>
+        <div class="faq-item reveal-up"><button class="faq-q">¿Aceptan grupos y celebraciones? <span class="faq-icon">+</span></button><div class="faq-a"><p>Por supuesto. Somos el lugar ideal para celebraciones privadas, cenas de empresa o grupos familiares. Podemos preparar menús especiales. Contacta con antelación.</p></div></div>
+        <div class="faq-item reveal-up"><button class="faq-q">¿La pasta es realmente artesanal? <span class="faq-icon">+</span></button><div class="faq-a"><p>Absolutamente. Nuestro chef elabora la pasta fresca cada mañana con harina italiana tipo "00" y huevos frescos, siguiendo recetas centenarias.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer class="site-footer" id="contacto-section">
+    <div class="footer-inner container">
+      <div class="footer-brand">
+        <div class="footer-logo"><span class="logo-la">la</span><span class="logo-name">Pappardella</span></div>
+        <p>Auténtica cocina italiana en el corazón del Puerto Calero, Lanzarote.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/restaurantelapappardella/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="https://www.facebook.com/people/restaurantelapappardella/100071028737150/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-nav"><h4>Navegación</h4><ul><li><a href="#historia-section">Historia</a></li><li><a href="#menu-section">Carta</a></li><li><a href="#vinos-section">Vinos</a></li><li><a href="#reserva-section">Reservas</a></li></ul></div>
+      <div class="footer-contact"><h4>Contacto</h4><ul><li>📍 Puerto Calero, Lanzarote</li><li><a href="tel:+34928513614">📞 +34 928 513 614</a></li><li>🕐 12:30–23:00h · Todos los días</li></ul></div>
+      <div class="footer-legal"><h4>Legal</h4><ul><li><a href="#">Aviso Legal</a></li><li><a href="#">Política de Privacidad</a></li><li><a href="#">Política de Cookies</a></li></ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>© 2025 La Pappardella · Todos los derechos reservados</p>
+      <p>Puerto Calero, Lanzarote · Canarias</p>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       GALERÍA MODAL — solo accesible desde nav "Experiencia"
+  ═══════════════════════════════════════════════════════════ -->
+  <div id="galeria-modal" class="galeria-modal" role="dialog" aria-modal="true" aria-label="Galería — Vivir la Experiencia">
+    <div class="galeria-modal-header">
+      <div class="galeria-modal-title">
+        <span class="eyebrow">Experiencia</span>
+        <h2>Vivir La Pappardella</h2>
+      </div>
+      <button class="galeria-close" id="galeria-close" aria-label="Cerrar galería">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28" height="28"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="galeria-grid-modal">
+      <div class="gal-m tall"><img src="Portada 2.jpg" alt="Fachada La Pappardella" loading="lazy" /></div>
+      <div class="gal-m"><img src="Captura de pantalla 2026-06-24 a las 11.18.13.png" alt="Terraza" loading="lazy" /></div>
+      <div class="gal-m"><img src="Captura de pantalla 2026-06-24 a las 11.14.38.png" alt="Puerto Calero" loading="lazy" /></div>
+      <div class="gal-m wide"><img src="Portada 1.jpg" alt="Interior" loading="lazy" /></div>
+      <div class="gal-m"><img src="Captura de pantalla 2026-06-24 a las 11.20.16.png" alt="Puerto" loading="lazy" /></div>
+      <div class="gal-m"><img src="Captura de pantalla 2026-06-24 a las 11.19.34.png" alt="Terraza marina" loading="lazy" /></div>
+      <div class="gal-m"><img src="Captura de pantalla 2026-06-24 a las 11.14.26.png" alt="Spaghetti vongole" loading="lazy" /></div>
+      <div class="gal-m"><img src="Captura de pantalla 2026-06-24 a las 11.17.53.png" alt="Pizza" loading="lazy" /></div>
+      <div class="gal-m wide"><img src="Captura de pantalla 2026-06-24 a las 11.18.27.png" alt="Paella" loading="lazy" /></div>
+    </div>
+  </div>
+  <div class="galeria-backdrop" id="galeria-backdrop"></div>
+
+  <!-- ═══════════════════════════════════════════════════════════
+       IA — FLOATING BUTTON + CHAT MODAL ESPECTACULAR
+  ═══════════════════════════════════════════════════════════ -->
+
+  <!-- Floating AI Orb -->
+  <button class="ai-orb" id="ai-orb" aria-label="Abrir asistente de La Pappardella">
+    <div class="ai-orb-ring"></div>
+    <div class="ai-orb-core">
+      <span class="ai-orb-icon">🍝</span>
+    </div>
+    <div class="ai-orb-label">Chef AI</div>
+  </button>
+
+  <!-- AI Modal fullscreen -->
+  <div class="ai-modal" id="ai-modal" role="dialog" aria-modal="true" aria-label="Asistente La Pappardella">
+    <div class="ai-modal-left">
+      <div class="ai-modal-bg-img">
+        <img src="Portada 2.jpg" alt="La Pappardella" />
+        <div class="ai-modal-bg-overlay"></div>
+      </div>
+      <div class="ai-modal-brand">
+        <div class="ai-brand-logo">
+          <span class="logo-la">la</span>
+          <span class="logo-name">Pappardella</span>
+        </div>
+        <p class="ai-brand-desc">Tu asistente personal para descubrir nuestra historia, carta, vinos y reservas.</p>
+        <div class="ai-quick-facts">
+          <div class="ai-fact">📍 Puerto Calero, Lanzarote</div>
+          <div class="ai-fact">🕐 12:30–23:00h todos los días</div>
+          <div class="ai-fact">📞 +34 928 513 614</div>
+        </div>
+      </div>
+    </div>
+    <div class="ai-modal-right">
+      <div class="ai-modal-topbar">
+        <div class="ai-topbar-info">
+          <div class="ai-avatar-sm">🍝</div>
+          <div>
+            <strong>Chef Assistant</strong>
+            <div class="ai-online"><span class="ai-dot"></span>En línea ahora</div>
+          </div>
+        </div>
+        <div class="ai-topbar-actions">
+          <input type="password" id="ai-api-key" placeholder="API Key (opcional)" autocomplete="off" class="ai-apikey-input" />
+          <button class="ai-modal-close" id="ai-modal-close" aria-label="Cerrar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ai-messages-area" id="ai-messages">
+        <div class="ai-welcome">
+          <div class="ai-welcome-avatar">🍝</div>
+          <div class="ai-msg ai-msg-bot">
+            <p>¡Benvenuto a La Pappardella! 👋</p>
+            <p>Soy tu asistente personal. Puedo contarte todo sobre nuestra historia, carta, vinos y cómo reservar tu mesa. ¿En qué puedo ayudarte hoy?</p>
+          </div>
+        </div>
+        <div class="ai-chips" id="ai-chips">
+          <button class="ai-chip" data-msg="¿Cuál es la especialidad de la casa?">🍝 Especialidades</button>
+          <button class="ai-chip" data-msg="¿Cómo puedo hacer una reserva?">📅 Hacer reserva</button>
+          <button class="ai-chip" data-msg="¿Qué vinos recomendáis?">🍷 Vinos</button>
+          <button class="ai-chip" data-msg="¿Cuáles son los horarios?">🕐 Horarios</button>
+          <button class="ai-chip" data-msg="¿Tienen opciones vegetarianas o sin gluten?">🌿 Dietas especiales</button>
+          <button class="ai-chip" data-msg="Cuéntame la historia del restaurante">📖 Historia</button>
+        </div>
+      </div>
+
+      <div class="ai-input-bar">
+        <div class="ai-input-wrap">
+          <input type="text" id="ai-input" placeholder="Pregúntame lo que quieras…" autocomplete="off" />
+          <button id="ai-send" aria-label="Enviar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+          </button>
+        </div>
+        <p class="ai-disclaimer">Respuestas generadas por IA · Para reservas llama al +34 928 513 614</p>
+      </div>
+    </div>
+  </div>
+  <div class="ai-backdrop" id="ai-backdrop"></div>
+
+  <!-- CURSOR -->
+  <div id="custom-cursor"><div id="cursor-dot"></div><div id="cursor-ring"></div></div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
