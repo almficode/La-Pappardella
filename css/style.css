@@ -1504,18 +1504,31 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     padding: 0;
   }
   .carta-focus-card {
-    flex-shrink: unset;
+    position: relative;
+    overflow: hidden;
     width: auto;
     height: auto;
-    aspect-ratio: 1 / 1;
-    scroll-snap-align: unset;
-    border-radius: 0;
-    position: relative;
+    aspect-ratio: unset;
   }
   /* Hide cards 5–8 on mobile */
   .carta-focus-card:nth-child(n+5) { display: none; }
-  .carta-focus-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .carta-focus-info { opacity: 1 !important; transform: none !important; position: absolute; }
+  /* Full image, no crop — natural ratio */
+  .carta-focus-card img {
+    width: 100%;
+    height: auto;
+    object-fit: unset;
+    display: block;
+  }
+  /* Text overlay on top of the image */
+  .carta-focus-info {
+    position: absolute !important;
+    inset: 0;
+    opacity: 1 !important;
+    transform: none !important;
+    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 50%);
+    justify-content: flex-end;
+    pointer-events: none;
+  }
   .carta-focus-name { font-size: 0.78rem; }
 
   /* ── Bridge ── */
