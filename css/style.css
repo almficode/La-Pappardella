@@ -1474,33 +1474,29 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .carta-desc { font-size: 0.82rem; }
   .carta-scroll-hint { display: none; }
   .carta-cta-btn { width: 100%; justify-content: center; max-width: 260px; }
-  /* Carta dishes: horizontal swipeable carousel */
+  /* Carta dishes: 2×2 grid, first 4 cards only */
   .carta-right { height: auto !important; min-height: 0; overflow: visible; }
   .carta-focus-grid {
-    display: flex !important;
-    flex-direction: row;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    grid-template-columns: none !important;
-    grid-template-rows: none !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: auto auto !important;
     height: auto !important;
     min-height: 0;
-    gap: 1rem;
-    padding: 0 5vw 2.5rem;
+    gap: 2px;
+    padding: 0;
   }
-  .carta-focus-grid::-webkit-scrollbar { display: none; }
   .carta-focus-card {
-    flex-shrink: 0;
-    width: 72vw;
-    height: 52vw;
-    scroll-snap-align: start;
-    border-radius: 4px;
+    flex-shrink: unset;
+    width: auto;
+    height: 44vw;
+    scroll-snap-align: unset;
+    border-radius: 0;
   }
+  /* Hide cards 5–8 on mobile */
+  .carta-focus-card:nth-child(n+5) { display: none; }
   .carta-focus-card img { height: 100%; width: 100%; object-fit: cover; }
   .carta-focus-info { opacity: 1 !important; transform: none !important; }
-  .carta-focus-name { font-size: 0.82rem; }
+  .carta-focus-name { font-size: 0.78rem; }
 
   /* ── Bridge ── */
   .carta-vinos-bridge { padding: 1.2rem 5vw; }
