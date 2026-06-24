@@ -1507,16 +1507,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     position: relative;
     overflow: hidden;
     width: auto;
-    height: auto;
-    aspect-ratio: unset;
+    aspect-ratio: 1 / 1;
   }
   /* Hide cards 5–8 on mobile */
   .carta-focus-card:nth-child(n+5) { display: none; }
-  /* Full image, no crop — natural ratio */
   .carta-focus-card img {
     width: 100%;
-    height: auto;
-    object-fit: unset;
+    height: 100%;
+    object-fit: cover;
     display: block;
   }
   /* Text overlay on top of the image */
@@ -1525,11 +1523,15 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     inset: 0;
     opacity: 1 !important;
     transform: none !important;
-    background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 50%);
+    background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0) 55%);
+    display: flex;
+    flex-direction: column;
     justify-content: flex-end;
+    padding: 0.75rem;
     pointer-events: none;
   }
-  .carta-focus-name { font-size: 0.78rem; }
+  .carta-focus-name { font-size: 0.75rem; }
+  .carta-focus-cat { font-size: 0.55rem; }
 
   /* ── Bridge ── */
   .carta-vinos-bridge { padding: 1.2rem 5vw; }
