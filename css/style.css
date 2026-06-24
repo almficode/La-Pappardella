@@ -718,6 +718,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin-bottom: 2rem;
 }
 .carta-cta-btn { align-self: flex-start; }
+/* Desktop: button is now a panel sibling — position it in the left column */
+.carta-panel > .carta-cta-btn {
+  position: absolute;
+  left: 3rem;
+  bottom: 4rem;
+  z-index: 5;
+}
 .carta-scroll-hint {
   margin-top: auto; padding-top: 2rem;
   font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase;
@@ -1468,12 +1475,23 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   /* ── Carta ── */
   .section-carta-pinned { height: auto; }
   .carta-sticky { position: relative; height: auto; }
-  .carta-panel { position: relative !important; transform: none !important; display: flex; flex-direction: column; }
+  .carta-panel { position: relative !important; transform: none !important; display: flex; flex-direction: column; align-items: flex-start; }
+  .carta-left { order: 1; }
+  .carta-right { order: 2; width: 100%; }
   .carta-left { padding: 3rem 5vw 2rem; min-height: auto; }
   .carta-title { font-size: clamp(2rem, 8vw, 3rem); }
   .carta-desc { font-size: 0.82rem; }
   .carta-scroll-hint { display: none; }
-  .carta-cta-btn { width: 100%; justify-content: center; max-width: 260px; }
+  /* Mobile: button moves after images */
+  .carta-panel > .carta-cta-btn {
+    position: static;
+    order: 3;
+    width: calc(100% - 10vw);
+    max-width: 300px;
+    justify-content: center;
+    margin: 1.5rem 5vw 3rem;
+    align-self: unset;
+  }
   /* Carta dishes: 2×2 grid, first 4 cards only */
   .carta-right { height: auto !important; min-height: 0; overflow: visible; }
   .carta-focus-grid {
@@ -1489,13 +1507,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     flex-shrink: unset;
     width: auto;
     height: auto;
+    aspect-ratio: 1 / 1;
     scroll-snap-align: unset;
     border-radius: 0;
     position: relative;
   }
   /* Hide cards 5–8 on mobile */
   .carta-focus-card:nth-child(n+5) { display: none; }
-  .carta-focus-card img { width: 100%; height: auto; object-fit: unset; display: block; }
+  .carta-focus-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .carta-focus-info { opacity: 1 !important; transform: none !important; position: absolute; }
   .carta-focus-name { font-size: 0.78rem; }
 
