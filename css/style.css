@@ -347,7 +347,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   background: rgba(0,0,0,0.92);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.25s ease;
 }
 
 /* ─── SCROLL CONTAINER ─── */
@@ -929,25 +928,39 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .cta-social-link:hover svg { opacity: 1; }
 
 /* ─── FAQ ─── */
+/* ─── CTA → FAQ BRIDGE ─── */
+.cta-faq-divider {
+  background: var(--navy);
+  display: flex; align-items: center; gap: 1.5rem;
+  padding: 0 5vw 3.5rem;
+}
+.cta-faq-line { flex: 1; height: 1px; background: rgba(255,255,255,0.1); display: block; }
+.cta-faq-label {
+  font-family: var(--font-body);
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em;
+  text-transform: uppercase; color: rgba(255,255,255,0.3);
+  white-space: nowrap;
+}
+
 .section-faq {
-  background: var(--white);
-  padding: 6rem 0;
+  background: var(--navy);
+  padding: 2rem 0 6rem;
 }
 .section-faq .section-header { margin-bottom: 3rem; }
 .section-faq h2 {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 300; color: var(--navy);
+  font-weight: 300; color: var(--white);
 }
 .section-faq h2 em { font-style: italic; color: var(--gold); }
 .faq-list { max-width: 780px; }
 .faq-item {
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 .faq-q {
   width: 100%; display: flex; justify-content: space-between; align-items: center;
   padding: 1.4rem 0;
-  font-size: 1rem; font-weight: 500; color: var(--navy);
+  font-size: 1rem; font-weight: 500; color: rgba(255,255,255,0.85);
   text-align: left; gap: 1rem;
   transition: color 0.2s;
 }
@@ -956,7 +969,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s var(--ease-out); }
 .faq-item.open .faq-a { max-height: 300px; }
-.faq-a p { font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); padding-bottom: 1.2rem; }
+.faq-a p { font-size: 0.9rem; line-height: 1.7; color: rgba(255,255,255,0.45); padding-bottom: 1.2rem; }
 
 /* ─── CTA FINAL ─── */
 .section-cta-final { background: var(--navy); overflow: hidden; }
