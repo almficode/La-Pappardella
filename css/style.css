@@ -352,7 +352,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ─── SCROLL CONTAINER ─── */
 #scroll-container {
   position: relative;
-  height: 500vh;
+  height: 360vh;
   z-index: 10;
 }
 
@@ -1350,6 +1350,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 /* ─── RESPONSIVE ─── */
+/* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .hist-inner { grid-template-columns: 1fr; }
   .hist-collage { height: 60vw; min-height: 320px; }
@@ -1357,42 +1358,202 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .story-modal { grid-template-columns: 1fr; }
   .story-modal-img { height: 240px; }
   .carta-panel { grid-template-columns: 300px 1fr; }
-  .carta-showcase { grid-template-columns: 1fr 1fr; }
   .vinos-inner { grid-template-columns: 1fr; }
   .vinos-img { display: none; }
   .cta-final-inner { grid-template-columns: 1fr; }
   .cta-final-img { height: 300px; }
   .ai-modal { grid-template-columns: 1fr; }
   .ai-modal-left { display: none; }
+  .lang-switcher { display: none; } /* lang in mobile menu */
 }
+
 @media (max-width: 768px) {
-  .nav-links, .nav-cta { display: none; }
+  /* ── Header ── */
+  .nav-links, .nav-cta, .lang-switcher { display: none; }
   .nav-burger { display: flex; }
-  .hero-heading { font-size: clamp(3rem, 12vw, 5rem); }
+
+  /* ── Hero ── */
+  #hero-overlay { padding: 0 5vw 5vh; }
+  .hero-badge { font-size: 0.6rem; letter-spacing: 0.16em; }
+  .hero-heading { font-size: clamp(2.6rem, 11vw, 4.5rem); line-height: 1.05; }
+  .hero-tagline { font-size: 0.85rem; max-width: 88%; line-height: 1.55; }
+  .hero-ctas { flex-direction: column; align-items: flex-start; gap: 0.75rem; }
+  .hero-ctas a { width: 100%; max-width: 300px; justify-content: center; padding: 0.95rem 1.5rem; }
+  .scroll-indicator { display: none; }
+
+  /* ── Scroll sections ── */
   .align-left { padding-right: 5vw; }
   .align-right { padding-left: 5vw; }
-  .align-left .section-inner, .align-right .section-inner { max-width: 100%; }
-  .section-heading { font-size: clamp(2rem, 8vw, 3rem); }
-  .stats-grid { flex-direction: column; gap: 2rem; }
-  .hist-inner { grid-template-columns: 1fr; }
-  .hist-collage { height: 70vw; }
-  .historia-pillars { grid-template-columns: 1fr 1fr; }
+  .align-left .section-inner,
+  .align-right .section-inner { max-width: 100%; }
+  .section-label { font-size: 0.65rem; }
+  .section-heading { font-size: clamp(1.8rem, 7.5vw, 2.8rem); }
+  .section-body { font-size: 0.88rem; line-height: 1.65; }
+  .section-cta { font-size: 0.78rem; }
+  .section-quote { padding: 2.5rem 6vw; min-height: auto; }
+  .quote-mark { font-size: 5rem; }
+  .quote-text { font-size: clamp(1.5rem, 5.5vw, 2.4rem) !important; }
+  .quote-author { font-size: 0.65rem !important; }
+  .cta-buttons { flex-direction: column; gap: 0.75rem; }
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-ghost { width: 100%; max-width: 300px; justify-content: center; }
+
+  /* ── Historia ── */
+  .section-historia { padding: 0; }
+  .hist-inner { grid-template-columns: 1fr; gap: 0; }
+  .hist-text { padding: 4rem 5vw 2rem; order: 1; }
+  .hist-collage { height: 80vw; min-height: 280px; order: 2; }
+  .hist-label { font-size: 0.65rem; margin-bottom: 1rem; }
+  .hist-headline { font-size: clamp(2rem, 9vw, 3rem); }
+  .hist-body p { font-size: 0.88rem; }
+  .hist-cta { flex-direction: column; gap: 0.75rem; }
+  .hist-cta a { width: 100%; text-align: center; justify-content: center; }
+  .hist-photos-hint { display: none; }
+  .historia-pillars { grid-template-columns: 1fr 1fr; padding: 2.5rem 5vw; gap: 1.8rem 1.5rem; }
+  .historia-pillar strong { font-size: 0.85rem; }
+  .historia-pillar p { font-size: 0.78rem; }
+  .story-modal { width: 94vw; border-radius: 8px; }
+  .story-modal-body { padding: 1.5rem; }
+  .story-modal-body h3 { font-size: clamp(1.5rem, 6vw, 2rem); }
+
+  /* ── Carta ── */
   .section-carta-pinned { height: auto; }
   .carta-sticky { position: relative; height: auto; }
-  .carta-panel { position: relative; transform: none !important; grid-template-columns: 1fr; display: flex; flex-direction: column; }
-  .carta-left { padding: 3rem 5vw; min-height: auto; }
-  .carta-right { min-height: 70vw; }
-  .carta-focus-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); min-height: 70vw; }
-  .vinos-grid { grid-template-columns: 1fr; }
+  .carta-panel { position: relative !important; transform: none !important; display: flex; flex-direction: column; }
+  .carta-left { padding: 3rem 5vw 2.5rem; min-height: auto; }
+  .carta-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .carta-desc { font-size: 0.82rem; }
+  .carta-cta-btn { width: 100%; justify-content: center; max-width: 260px; }
+  .carta-right { height: auto !important; min-height: 100vw; }
+  .carta-focus-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); height: auto !important; min-height: 100vw; }
+  .carta-focus-card img { height: 25vw; object-fit: cover; }
+  .carta-focus-info { opacity: 1 !important; transform: none !important; }
+  .carta-focus-name { font-size: 0.8rem; }
+
+  /* ── Bridge ── */
+  .carta-vinos-bridge { padding: 1.2rem 5vw; }
+  .bridge-text { font-size: 0.88rem; }
+
+  /* ── Vinos ── */
+  .vinos-inner { grid-template-columns: 1fr; }
+  .vinos-img { display: none; }
+  .vinos-text { padding: 4rem 5vw; }
+  .section-vinos .vinos-text h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .vinos-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+  .vino-item { padding: 0.9rem 1rem; }
+
+  /* ── Reviews: horizontal snap carousel ── */
+  .section-reviews { padding-bottom: 1rem; }
+  .section-reviews h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
+  .reviews-float-wrap {
+    height: auto !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    display: flex !important;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 0.5rem 5vw 2rem;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reviews-float-wrap::after {
+    content: ''; flex-shrink: 0; width: 1px;
+  }
+  .reviews-float-wrap::-webkit-scrollbar { display: none; }
+  .review-card {
+    position: static !important;
+    flex-shrink: 0;
+    width: 82vw !important;
+    transform: none !important;
+    opacity: 1 !important;
+    scroll-snap-align: start;
+    visibility: visible !important;
+  }
+  .ta-badge { margin-top: 1.5rem; }
+
+  /* ── CTA Final ── */
+  .cta-final-inner { grid-template-columns: 1fr; }
+  .cta-final-img { height: 220px; }
+  .cta-final-content { padding: 2.5rem 5vw 3rem; }
+  .cta-final-content h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+  .cta-final-content .eyebrow { font-size: 0.65rem; }
+  .cta-final-content > p { font-size: 0.88rem; }
+  .cta-final-actions .btn-primary { width: 100%; max-width: 300px; justify-content: center; }
+  .cta-final-info { flex-direction: column; gap: 0.4rem; }
+  .cta-final-info span { font-size: 0.8rem; }
+  .cta-social-row { flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem; }
+  .cta-social-link { font-size: 0.75rem; }
+
+  /* ── CTA-FAQ bridge ── */
+  .cta-faq-divider { padding: 0 5vw 2rem; }
+
+  /* ── FAQ ── */
+  .section-faq { padding: 1rem 0 4rem; }
+  .section-faq h2 { font-size: clamp(1.8rem, 7vw, 2.5rem); }
+  .faq-q { font-size: 0.9rem; padding: 1.2rem 0; }
+  .faq-a p { font-size: 0.85rem; }
+
+  /* ── Footer ── */
+  .site-footer { padding-top: 3.5rem; }
   .footer-inner { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+  .footer-brand > p { font-size: 0.85rem; }
+  .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+  .footer-bottom p { font-size: 0.7rem; }
+
+  /* ── Galería / Modals ── */
   .galeria-grid-modal { grid-template-columns: 1fr 1fr; }
   .ai-modal { width: 100%; border-radius: 12px 12px 0 0; }
+
+  /* ── Cursor: ocultar en táctil ── */
+  #cursor-dot, #cursor-ring { display: none !important; }
+
+  /* ── AI orb ── */
+  .ai-orb { bottom: 1rem; right: 1rem; width: 46px; height: 46px; }
+  .ai-orb-pulse { width: 46px; height: 46px; }
 }
+
+/* ─── Mobile lang switcher (inside mobile menu) ─── */
+.lang-switcher-mobile {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+  padding: 0 5vw;
+}
+.lang-m-opt {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.14);
+  color: rgba(255,255,255,0.6);
+  padding: 0.5rem 0.9rem;
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.lang-m-opt.active,
+.lang-m-opt:hover {
+  background: rgba(201,169,110,0.14);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
 @media (max-width: 480px) {
-  .historia-pillars { grid-template-columns: 1fr; }
+  .hero-heading { font-size: clamp(2.2rem, 10.5vw, 3.2rem); }
+  .hist-headline { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .historia-pillars { grid-template-columns: 1fr; gap: 1.5rem; }
   .footer-inner { grid-template-columns: 1fr; }
   .galeria-grid-modal { grid-template-columns: 1fr; }
   .gal-m.tall, .gal-m.wide { grid-column: 1; grid-row: auto; }
+  .review-card { width: 88vw !important; }
+  .section-reviews h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
+  .quote-text { font-size: clamp(1.3rem, 5.5vw, 2rem) !important; }
+  .carta-focus-card img { height: 22vw; }
+  .cta-faq-divider .cta-faq-label { display: none; }
 }
 
 /* ═══ LANGUAGE SWITCHER ═══ */

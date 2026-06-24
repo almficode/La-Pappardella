@@ -3,8 +3,8 @@
    ═══════════════════════════════════════════════════════════ */
 
 const WINDOW_SIZE = 0.08;
-const STATS_ENTER = 0.44;
-const STATS_LEAVE = 0.68;
+const STATS_ENTER = 0.32;
+const STATS_LEAVE = 0.56;
 
 const scrollContainer = document.getElementById('scroll-container');
 
@@ -46,7 +46,7 @@ function initHeroFade() {
     end: 'bottom bottom',
     scrub: true,
     onUpdate: self => {
-      const opacity = Math.max(0, 1 - self.progress / 0.18);
+      const opacity = Math.max(0, 1 - self.progress / 0.14);
       hero.style.opacity = opacity;
       hero.style.pointerEvents = opacity > 0 ? '' : 'none';
     }
@@ -85,7 +85,7 @@ function setupSectionAnimation(section) {
   const leave = parseFloat(section.dataset.leave) / 100;
   const mid = (enter + leave) / 2;
 
-  section.style.top = (mid * 500) + 'vh';
+  section.style.top = (mid * 360) + 'vh';
   section.style.transform = 'translateY(-50%)';
 
   const children = section.querySelectorAll(
@@ -474,6 +474,11 @@ function initCartaShowcase() {
 function initReviews() {
   const wrap  = document.getElementById('reviews-float');
   if (!wrap) return;
+  // On mobile: cards are static in a CSS scroll-snap carousel — no GSAP needed
+  if (window.innerWidth <= 768) {
+    wrap.querySelectorAll('.review-card').forEach(c => { c.style.opacity = '1'; });
+    return;
+  }
   const cards = Array.from(wrap.querySelectorAll('.review-card'));
   if (!cards.length) return;
 
@@ -655,6 +660,7 @@ function initAI() {
 
 /* ─── Custom Cursor ─── */
 function initCursor() {
+  if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
   const dot  = document.getElementById('cursor-dot');
   const ring = document.getElementById('cursor-ring');
   if (!dot || !ring) return;
@@ -728,7 +734,7 @@ const TRANSLATIONS = {
   es: {
     'nav.historia':'Historia','nav.carta':'Carta','nav.vinos':'Vinos','nav.experiencia':'Experiencia','nav.reservas':'Reservas','nav.cta':'Reservar Mesa',
     'hero.tagline':'Cocina italiana auténtica con vistas al océano Atlántico','hero.cta1':'Descubrir','hero.cta2':'Ver Carta','hero.scroll':'Scroll',
-    's1.label':'001 / Origen','s1.heading':'Donde Italia<br><em>se encuentra</em><br>con el Atlántico','s1.body':'Veleros al atardecer, la brisa salada del Atlántico y el rumor eterno de un puerto en calma. Un rincón de Italia en el corazón de Lanzarote, a pocos pasos del mar.','s1.cta':'Reservar terraza →',
+    's1.label':'001 / Origen','s1.heading':'La dolce vita<br><em>frente al</em><br>Atlántico','s1.body':'Veleros al atardecer, la brisa salada del Atlántico y el rumor eterno de un puerto en calma. Un rincón de Italia en el corazón de Lanzarote, a pocos pasos del mar.','s1.cta':'Reservar terraza →',
     'quote.text':'Cada plato que sale de nuestra cocina lleva el alma de Italia y el sabor del Atlántico.','quote.author':'— 25 años cocinando con pasión en Puerto Calero',
     's3.heading':'Comienza<br><em>la experiencia</em>','s3.body':'Descubre nuestra historia, carta y los sabores únicos de Lanzarote.','s3.btn1':'Nuestra historia','s3.btn2':'Ver la carta',
     'hist.label':'001 — Nuestra Historia',
@@ -761,7 +767,7 @@ const TRANSLATIONS = {
   en: {
     'nav.historia':'Our Story','nav.carta':'Menu','nav.vinos':'Wines','nav.experiencia':'Experience','nav.reservas':'Reservations','nav.cta':'Book a Table',
     'hero.tagline':'Authentic Italian cuisine overlooking the Atlantic Ocean','hero.cta1':'Discover','hero.cta2':'View Menu','hero.scroll':'Scroll',
-    's1.label':'001 / Origins','s1.heading':'Where Italy<br><em>meets</em><br>the Atlantic','s1.body':'Sailboats at sunset, the salty Atlantic breeze and the gentle sound of a calm marina. A corner of Italy in the heart of Lanzarote, right by the sea.','s1.cta':'Book the terrace →',
+    's1.label':'001 / Origins','s1.heading':'La dolce vita<br><em>by the</em><br>Atlantic','s1.body':'Sailboats at sunset, the salty Atlantic breeze and the gentle sound of a calm marina. A corner of Italy in the heart of Lanzarote, right by the sea.','s1.cta':'Book the terrace →',
     'quote.text':'Every dish that leaves our kitchen carries the soul of Italy and the flavour of the Atlantic.','quote.author':'— 25 years cooking with passion in Puerto Calero',
     's3.heading':'Begin<br><em>the experience</em>','s3.body':'Discover our story, menu and the unique flavours of Lanzarote.','s3.btn1':'Our story','s3.btn2':'View menu',
     'hist.label':'001 — Our Story',
@@ -794,7 +800,7 @@ const TRANSLATIONS = {
   fr: {
     'nav.historia':'Notre Histoire','nav.carta':'Menu','nav.vinos':'Vins','nav.experiencia':'Expérience','nav.reservas':'Réservations','nav.cta':'Réserver',
     'hero.tagline':'Cuisine italienne authentique avec vue sur l\'océan Atlantique','hero.cta1':'Découvrir','hero.cta2':'Voir le Menu','hero.scroll':'Scroll',
-    's1.label':'001 / Origines','s1.heading':'Là où l\'Italie<br><em>rencontre</em><br>l\'Atlantique','s1.body':'Voiliers au coucher du soleil, la brise salée de l\'Atlantique et le doux murmure d\'un port tranquille. Un coin d\'Italie au cœur de Lanzarote, face à la mer.','s1.cta':'Réserver la terrasse →',
+    's1.label':'001 / Origines','s1.heading':'La dolce vita<br><em>face à</em><br>l\'Atlantique','s1.body':'Voiliers au coucher du soleil, la brise salée de l\'Atlantique et le doux murmure d\'un port tranquille. Un coin d\'Italie au cœur de Lanzarote, face à la mer.','s1.cta':'Réserver la terrasse →',
     'quote.text':'Chaque plat qui sort de notre cuisine porte l\'âme de l\'Italie et la saveur de l\'Atlantique.','quote.author':'— 25 ans à cuisiner avec passion à Puerto Calero',
     's3.heading':'Commencez<br><em>l\'expérience</em>','s3.body':'Découvrez notre histoire, notre menu et les saveurs uniques de Lanzarote.','s3.btn1':'Notre histoire','s3.btn2':'Voir le menu',
     'hist.label':'001 — Notre Histoire',
@@ -827,7 +833,7 @@ const TRANSLATIONS = {
   de: {
     'nav.historia':'Geschichte','nav.carta':'Speisekarte','nav.vinos':'Weine','nav.experiencia':'Erlebnis','nav.reservas':'Reservierungen','nav.cta':'Tisch reservieren',
     'hero.tagline':'Authentische italienische Küche mit Blick auf den Atlantischen Ozean','hero.cta1':'Entdecken','hero.cta2':'Speisekarte','hero.scroll':'Scroll',
-    's1.label':'001 / Ursprung','s1.heading':'Wo Italien<br><em>auf den</em><br>Atlantik trifft','s1.body':'Segelboote beim Sonnenuntergang, die salzige Atlantikbrise und das sanfte Rauschen eines ruhigen Hafens. Ein Stück Italien im Herzen von Lanzarote, direkt am Meer.','s1.cta':'Terrasse reservieren →',
+    's1.label':'001 / Ursprung','s1.heading':'La dolce vita<br><em>am</em><br>Atlantik','s1.body':'Segelboote beim Sonnenuntergang, die salzige Atlantikbrise und das sanfte Rauschen eines ruhigen Hafens. Ein Stück Italien im Herzen von Lanzarote, direkt am Meer.','s1.cta':'Terrasse reservieren →',
     'quote.text':'Jedes Gericht, das unsere Küche verlässt, trägt die Seele Italiens und den Geschmack des Atlantiks.','quote.author':'— 25 Jahre leidenschaftliches Kochen in Puerto Calero',
     's3.heading':'Beginnen Sie<br><em>das Erlebnis</em>','s3.body':'Entdecken Sie unsere Geschichte, Speisekarte und die einzigartigen Aromen von Lanzarote.','s3.btn1':'Unsere Geschichte','s3.btn2':'Speisekarte',
     'hist.label':'001 — Unsere Geschichte',
@@ -860,7 +866,7 @@ const TRANSLATIONS = {
   it: {
     'nav.historia':'La Nostra Storia','nav.carta':'Menu','nav.vinos':'Vini','nav.experiencia':'Esperienza','nav.reservas':'Prenotazioni','nav.cta':'Prenota un Tavolo',
     'hero.tagline':'Cucina italiana autentica con vista sull\'oceano Atlantico','hero.cta1':'Scoprire','hero.cta2':'Vedi il Menu','hero.scroll':'Scroll',
-    's1.label':'001 / Origini','s1.heading':'Dove l\'Italia<br><em>incontra</em><br>l\'Atlantico','s1.body':'Barche a vela al tramonto, la brezza salata dell\'Atlantico e il dolce sussurro di un porto tranquillo. Un angolo d\'Italia nel cuore di Lanzarote, a pochi passi dal mare.','s1.cta':'Prenota la terrazza →',
+    's1.label':'001 / Origini','s1.heading':'La dolce vita<br><em>sull\'</em><br>Atlantico','s1.body':'Barche a vela al tramonto, la brezza salata dell\'Atlantico e il dolce sussurro di un porto tranquillo. Un angolo d\'Italia nel cuore di Lanzarote, a pochi passi dal mare.','s1.cta':'Prenota la terrazza →',
     'quote.text':'Ogni piatto che esce dalla nostra cucina porta l\'anima dell\'Italia e il sapore dell\'Atlantico.','quote.author':'— 25 anni di cucina appassionata a Puerto Calero',
     's3.heading':'Inizia<br><em>l\'esperienza</em>','s3.body':'Scopri la nostra storia, il menu e i sapori unici di Lanzarote.','s3.btn1':'La nostra storia','s3.btn2':'Vedi il menu',
     'hist.label':'001 — La Nostra Storia',
@@ -1065,7 +1071,7 @@ function setLanguage(lang) {
   localStorage.setItem('pappardella-lang', lang);
   const curr = document.getElementById('lang-current');
   if (curr) curr.textContent = lang.toUpperCase();
-  document.querySelectorAll('.lang-option').forEach(btn => {
+  document.querySelectorAll('.lang-option, .lang-m-opt').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
   });
   applyTranslations(lang);
@@ -1085,6 +1091,13 @@ function initI18n() {
     opt.addEventListener('click', () => {
       setLanguage(opt.dataset.lang);
       switcher.classList.remove('open');
+    });
+  });
+
+  // Mobile lang options (inside mobile menu)
+  document.querySelectorAll('.lang-m-opt').forEach(opt => {
+    opt.addEventListener('click', () => {
+      setLanguage(opt.dataset.lang);
     });
   });
 
