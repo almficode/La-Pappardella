@@ -1409,7 +1409,29 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .hist-cta { flex-direction: column; gap: 0.75rem; }
   .hist-cta a { width: 100%; text-align: center; justify-content: center; }
   .hist-photos-hint { display: none; }
-  .historia-pillars { grid-template-columns: 1fr 1fr; padding: 2.5rem 5vw; gap: 1.8rem 1.5rem; }
+  /* Historia pillars: horizontal scroll bar */
+  .historia-pillars {
+    display: flex !important;
+    flex-direction: row !important;
+    grid-template-columns: none !important;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+  }
+  .historia-pillars::-webkit-scrollbar { display: none; }
+  .historia-pillar {
+    flex-shrink: 0;
+    width: 72vw;
+    scroll-snap-align: start;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding: 2rem 5vw;
+  }
+  .historia-pillar:last-child { border-right: none; }
   .historia-pillar strong { font-size: 0.85rem; }
   .historia-pillar p { font-size: 0.78rem; }
   .story-modal { width: 94vw; border-radius: 8px; }
@@ -1435,41 +1457,43 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .bridge-text { font-size: 0.88rem; }
 
   /* ── Vinos ── */
-  .vinos-inner { grid-template-columns: 1fr; }
-  .vinos-img { display: none; }
-  .vinos-text { padding: 4rem 5vw; }
+  .vinos-inner { display: flex; flex-direction: column; }
+  .vinos-img { display: block !important; order: 2; height: 60vw; min-height: 220px; }
+  .vinos-img img { width: 100%; height: 100%; object-fit: cover; }
+  .vinos-img-deco { display: none; }
+  .vinos-text { padding: 3rem 5vw 2rem; order: 1; }
   .section-vinos .vinos-text h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
-  .vinos-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+  .vinos-grid { display: none; }
   .vino-item { padding: 0.9rem 1rem; }
 
-  /* ── Reviews: horizontal snap carousel ── */
+  /* ── Reviews: infinite marquee ── */
   .section-reviews { padding-bottom: 1rem; }
   .section-reviews h2 { font-size: clamp(1.8rem, 7vw, 2.6rem); }
   .reviews-float-wrap {
     height: auto !important;
-    overflow-x: auto;
-    overflow-y: visible;
-    display: flex !important;
-    flex-direction: row;
-    align-items: stretch;
+    overflow: hidden !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+  .reviews-marquee-track {
+    display: flex;
     gap: 1rem;
-    padding: 0.5rem 5vw 2rem;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    padding: 0.5rem 0 2rem 5vw;
+    width: max-content;
+    animation: reviews-marquee 30s linear infinite;
   }
-  .reviews-float-wrap::after {
-    content: ''; flex-shrink: 0; width: 1px;
+  @keyframes reviews-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
-  .reviews-float-wrap::-webkit-scrollbar { display: none; }
-  .review-card {
+  .reviews-marquee-track .review-card {
     position: static !important;
     flex-shrink: 0;
-    width: 82vw !important;
+    width: 78vw !important;
     transform: none !important;
     opacity: 1 !important;
-    scroll-snap-align: start;
     visibility: visible !important;
+    scroll-snap-align: unset;
   }
   .ta-badge { margin-top: 1.5rem; }
 
@@ -1545,7 +1569,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 @media (max-width: 480px) {
   .hero-heading { font-size: clamp(2.2rem, 10.5vw, 3.2rem); }
   .hist-headline { font-size: clamp(1.8rem, 9vw, 2.4rem); }
-  .historia-pillars { grid-template-columns: 1fr; gap: 1.5rem; }
+  /* historia pillars already horizontal scroll — no override needed */
   .footer-inner { grid-template-columns: 1fr; }
   .galeria-grid-modal { grid-template-columns: 1fr; }
   .gal-m.tall, .gal-m.wide { grid-column: 1; grid-row: auto; }

@@ -474,9 +474,14 @@ function initCartaShowcase() {
 function initReviews() {
   const wrap  = document.getElementById('reviews-float');
   if (!wrap) return;
-  // On mobile: cards are static in a CSS scroll-snap carousel — no GSAP needed
+  // On mobile: infinite marquee — duplicate cards into a track, CSS animates
   if (window.innerWidth <= 768) {
-    wrap.querySelectorAll('.review-card').forEach(c => { c.style.opacity = '1'; });
+    const cards = Array.from(wrap.querySelectorAll('.review-card'));
+    const track = document.createElement('div');
+    track.className = 'reviews-marquee-track';
+    cards.forEach(c => { c.style.opacity = '1'; track.appendChild(c); });
+    cards.forEach(c => { const clone = c.cloneNode(true); track.appendChild(clone); });
+    wrap.appendChild(track);
     return;
   }
   const cards = Array.from(wrap.querySelectorAll('.review-card'));
