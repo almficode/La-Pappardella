@@ -513,11 +513,19 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hist-inner {
   display: grid;
   grid-template-columns: 1fr 52%;
+  grid-template-rows: 1fr auto;
   min-height: 90vh;
 }
 .hist-text {
-  padding: 7rem 4vw 5rem 5vw;
+  padding: 7rem 4vw 2rem 5vw;
   display: flex; flex-direction: column; justify-content: center;
+  grid-column: 1; grid-row: 1;
+}
+/* Desktop: CTA in column 1 row 2, collage spans both rows */
+.hist-collage { grid-column: 2; grid-row: 1 / 3; }
+#hist-cta {
+  grid-column: 1; grid-row: 2;
+  padding: 0 4vw 5rem 5vw;
 }
 .hist-label {
   display: flex; align-items: center; gap: 0;
@@ -1352,8 +1360,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 /* ─── RESPONSIVE ─── */
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
-  .hist-inner { grid-template-columns: 1fr; }
-  .hist-collage { height: 60vw; min-height: 320px; }
+  .hist-inner { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .hist-text { grid-column: auto; grid-row: auto; }
+  .hist-collage { grid-column: auto; grid-row: auto; height: 60vw; min-height: 320px; }
+  #hist-cta { grid-column: auto; grid-row: auto; padding: 2rem 5vw 4rem; }
   .historia-pillars { grid-template-columns: repeat(2, 1fr); }
   .story-modal { grid-template-columns: 1fr; }
   .story-modal-img { height: 240px; }
@@ -1400,16 +1410,30 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
   /* ── Historia ── */
   .section-historia { padding: 0; }
-  .hist-inner { grid-template-columns: 1fr; gap: 0; }
-  .hist-text { padding: 4rem 5vw 2rem; order: 1; }
-  .hist-collage { height: 80vw; min-height: 280px; order: 2; }
+  .hist-inner {
+    display: flex !important;
+    flex-direction: column;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    gap: 0;
+  }
+  .hist-text { padding: 4rem 5vw 2rem; order: 1; grid-column: auto; grid-row: auto; }
+  .hist-collage { height: 80vw; min-height: 280px; order: 2; grid-column: auto; grid-row: auto; }
+  #hist-cta {
+    order: 3;
+    grid-column: auto; grid-row: auto;
+    padding: 2rem 5vw 3rem;
+    display: flex; flex-direction: column; gap: 0.75rem;
+    opacity: 1 !important; transform: none !important;
+  }
+  #hist-cta a { width: 100%; text-align: center; justify-content: center; }
   .hist-label { font-size: 0.65rem; margin-bottom: 1rem; }
   .hist-headline { font-size: clamp(2rem, 9vw, 3rem); }
   .hist-body p { font-size: 0.88rem; }
   .hist-cta { flex-direction: column; gap: 0.75rem; }
   .hist-cta a { width: 100%; text-align: center; justify-content: center; }
   .hist-photos-hint { display: none; }
-  /* Historia pillars: horizontal scroll bar */
+  /* Historia pillars: horizontal scroll bar, white bg, slim */
   .historia-pillars {
     display: flex !important;
     flex-direction: row !important;
@@ -1421,19 +1445,22 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     scrollbar-width: none;
     gap: 0;
     padding: 0;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    background: #fff !important;
+    border-top: 1px solid var(--border);
   }
   .historia-pillars::-webkit-scrollbar { display: none; }
   .historia-pillar {
     flex-shrink: 0;
-    width: 72vw;
+    width: 60vw;
     scroll-snap-align: start;
-    border-right: 1px solid rgba(255,255,255,0.08);
-    padding: 2rem 5vw;
+    border-right: 1px solid var(--border);
+    padding: 1.2rem 5vw;
+    background: #fff;
   }
   .historia-pillar:last-child { border-right: none; }
-  .historia-pillar strong { font-size: 0.85rem; }
-  .historia-pillar p { font-size: 0.78rem; }
+  .pillar-num { color: var(--gold); }
+  .historia-pillar strong { font-size: 0.82rem; color: var(--navy); }
+  .historia-pillar p { font-size: 0.72rem; color: var(--text-muted); }
   .story-modal { width: 94vw; border-radius: 8px; }
   .story-modal-body { padding: 1.5rem; }
   .story-modal-body h3 { font-size: clamp(1.5rem, 6vw, 2rem); }
@@ -1442,15 +1469,38 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .section-carta-pinned { height: auto; }
   .carta-sticky { position: relative; height: auto; }
   .carta-panel { position: relative !important; transform: none !important; display: flex; flex-direction: column; }
-  .carta-left { padding: 3rem 5vw 2.5rem; min-height: auto; }
+  .carta-left { padding: 3rem 5vw 2rem; min-height: auto; }
   .carta-title { font-size: clamp(2rem, 8vw, 3rem); }
   .carta-desc { font-size: 0.82rem; }
+  .carta-scroll-hint { display: none; }
   .carta-cta-btn { width: 100%; justify-content: center; max-width: 260px; }
-  .carta-right { height: auto !important; min-height: 100vw; }
-  .carta-focus-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 1fr); height: auto !important; min-height: 100vw; }
-  .carta-focus-card img { height: 25vw; object-fit: cover; }
+  /* Carta dishes: horizontal swipeable carousel */
+  .carta-right { height: auto !important; min-height: 0; overflow: visible; }
+  .carta-focus-grid {
+    display: flex !important;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    grid-template-columns: none !important;
+    grid-template-rows: none !important;
+    height: auto !important;
+    min-height: 0;
+    gap: 1rem;
+    padding: 0 5vw 2.5rem;
+  }
+  .carta-focus-grid::-webkit-scrollbar { display: none; }
+  .carta-focus-card {
+    flex-shrink: 0;
+    width: 72vw;
+    height: 52vw;
+    scroll-snap-align: start;
+    border-radius: 4px;
+  }
+  .carta-focus-card img { height: 100%; width: 100%; object-fit: cover; }
   .carta-focus-info { opacity: 1 !important; transform: none !important; }
-  .carta-focus-name { font-size: 0.8rem; }
+  .carta-focus-name { font-size: 0.82rem; }
 
   /* ── Bridge ── */
   .carta-vinos-bridge { padding: 1.2rem 5vw; }
@@ -1458,8 +1508,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
   /* ── Vinos ── */
   .vinos-inner { display: flex; flex-direction: column; }
-  .vinos-img { display: block !important; order: 2; height: 60vw; min-height: 220px; }
-  .vinos-img img { width: 100%; height: 100%; object-fit: cover; }
+  .vinos-img { display: block !important; order: 2; }
+  .vinos-img img { width: 100%; height: auto; object-fit: contain; display: block; }
   .vinos-img-deco { display: none; }
   .vinos-text { padding: 3rem 5vw 2rem; order: 1; }
   .section-vinos .vinos-text h2 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
