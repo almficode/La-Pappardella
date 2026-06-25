@@ -165,10 +165,8 @@ function initBurger() {
   const burger = document.getElementById('nav-burger');
   const mobile = document.getElementById('nav-mobile');
   const closeBtn = document.getElementById('nav-mobile-close');
-  const closeMobile = () => { mobile.style.display = 'none'; };
-  burger?.addEventListener('click', () => {
-    mobile.style.display = mobile.style.display === 'flex' ? 'none' : 'flex';
-  });
+  const closeMobile = () => mobile?.classList.remove('is-open');
+  burger?.addEventListener('click', () => mobile?.classList.toggle('is-open'));
   closeBtn?.addEventListener('click', closeMobile);
   mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
 }

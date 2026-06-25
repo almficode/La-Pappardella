@@ -223,11 +223,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .nav-mobile {
   display: none; position: fixed; inset: 0;
   background: var(--navy);
-  z-index: 90;
+  z-index: 200;
   flex-direction: column;
   align-items: center; justify-content: center;
   gap: 2rem;
 }
+.nav-mobile.is-open { display: flex; }
 .nav-mobile-close {
   position: absolute; top: 1.5rem; right: 1.5rem;
   width: 44px; height: 44px;
@@ -727,7 +728,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--white);
   margin-bottom: 1.5rem;
 }
-.carta-title em { font-style: italic; color: var(--gold); }
+.carta-title span { display: block; }
+.carta-title em { display: block; font-style: italic; color: var(--gold); }
 .carta-desc {
   font-size: 0.85rem; line-height: 1.7;
   color: rgba(255,255,255,0.55);
@@ -1495,7 +1497,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .carta-left { order: 1; }
   .carta-right { order: 2; width: 100%; }
   .carta-left { padding: 3rem 5vw 2rem; min-height: auto; }
+  /* Carta title: 2 lines on mobile */
   .carta-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .carta-title span,
+  .carta-title em { display: inline; }
   .carta-desc { font-size: 0.82rem; }
   .carta-scroll-hint { display: none; }
   /* Mobile: button moves after images */
@@ -1644,11 +1649,22 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   #cursor-dot, #cursor-ring { display: none !important; }
 
   /* ── AI orb ── */
-  .ai-orb { bottom: 1.2rem; right: 1.2rem; width: auto; height: auto; gap: 0; }
+  /* AI orb: clean round button, no label/ring clutter */
+  .ai-orb {
+    bottom: 1.2rem; right: 1.2rem;
+    width: 56px; height: 56px;
+    gap: 0;
+    border-radius: 50%;
+  }
   .ai-orb-label { display: none; }
-  .ai-orb-ring { display: none; }
-  .ai-orb-core { width: 52px; height: 52px; border-radius: 50%; }
+  .ai-orb-ring  { display: none; }
   .ai-orb-pulse { display: none; }
+  .ai-orb-core  {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    box-shadow: 0 4px 18px rgba(26,39,68,0.5), 0 0 0 2px var(--gold);
+  }
+  .ai-orb-icon { font-size: 1.5rem; }
 }
 
 /* ─── Mobile lang switcher (inside mobile menu) ─── */
