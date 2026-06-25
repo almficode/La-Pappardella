@@ -218,8 +218,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transition: background 0.2s;
 }
 .nav-cta:hover { background: var(--gold-light); }
-.nav-burger { display: none; flex-direction: column; gap: 5px; }
-.nav-burger span { display: block; width: 24px; height: 1px; background: var(--white); transition: transform 0.3s; }
+.nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s; }
 .nav-mobile {
   display: none; position: fixed; inset: 0;
   background: var(--navy);
@@ -228,8 +228,24 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   align-items: center; justify-content: center;
   gap: 2rem;
 }
+.nav-mobile-close {
+  position: absolute; top: 1.5rem; right: 1.5rem;
+  width: 44px; height: 44px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.nav-mobile-close span {
+  position: absolute;
+  display: block; width: 18px; height: 1.5px;
+  background: var(--white); border-radius: 2px;
+}
+.nav-mobile-close span:first-child { transform: rotate(45deg); }
+.nav-mobile-close span:last-child  { transform: rotate(-45deg); }
 .nav-mobile ul { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 1.5rem; }
-.nav-mobile a { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--white); }
+.nav-mobile a { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--white); text-decoration: none; }
 .mobile-cta { margin-top: 1rem; }
 
 /* ─── HERO BG IMAGE ─── */
@@ -1628,8 +1644,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   #cursor-dot, #cursor-ring { display: none !important; }
 
   /* ── AI orb ── */
-  .ai-orb { bottom: 1rem; right: 1rem; width: 46px; height: 46px; }
-  .ai-orb-pulse { width: 46px; height: 46px; }
+  .ai-orb { bottom: 1.2rem; right: 1.2rem; width: auto; height: auto; gap: 0; }
+  .ai-orb-label { display: none; }
+  .ai-orb-ring { display: none; }
+  .ai-orb-core { width: 52px; height: 52px; border-radius: 50%; }
+  .ai-orb-pulse { display: none; }
 }
 
 /* ─── Mobile lang switcher (inside mobile menu) ─── */

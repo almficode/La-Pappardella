@@ -164,10 +164,13 @@ function initHeader() {
 function initBurger() {
   const burger = document.getElementById('nav-burger');
   const mobile = document.getElementById('nav-mobile');
+  const closeBtn = document.getElementById('nav-mobile-close');
+  const closeMobile = () => { mobile.style.display = 'none'; };
   burger?.addEventListener('click', () => {
     mobile.style.display = mobile.style.display === 'flex' ? 'none' : 'flex';
   });
-  mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { mobile.style.display = 'none'; }));
+  closeBtn?.addEventListener('click', closeMobile);
+  mobile?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMobile));
 }
 
 /* ─── IntersectionObserver Reveals ─── */
