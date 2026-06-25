@@ -609,8 +609,30 @@ function initAI() {
 
   const chatHistory = [];
 
-  const openModal  = () => { modal.classList.add('active'); backdrop.classList.add('active'); lenis?.stop(); document.body.style.overflow = 'hidden'; input?.focus(); };
-  const closeModal = () => { modal.classList.remove('active'); backdrop.classList.remove('active'); lenis?.start(); document.body.style.overflow = ''; };
+  function blockPageScroll(e) {
+    if (!e.target.closest('#ai-messages')) e.preventDefault();
+  }
+
+  function openModal() {
+    modal.classList.add('active');
+    backdrop.classList.add('active');
+    lenis?.stop();
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('wheel',     blockPageScroll, { passive: false });
+    document.addEventListener('touchmove', blockPageScroll, { passive: false });
+    input?.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    backdrop.classList.remove('active');
+    lenis?.start();
+    document.documentElement.style.overflow = '';
+    document.body.style.overflow = '';
+    document.removeEventListener('wheel',     blockPageScroll);
+    document.removeEventListener('touchmove', blockPageScroll);
+  }
 
   orb?.addEventListener('click', openModal);
   closeBtn?.addEventListener('click', closeModal);
