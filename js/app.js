@@ -609,8 +609,8 @@ function initAI() {
 
   const chatHistory = [];
 
-  const openModal  = () => { modal.classList.add('active'); backdrop.classList.add('active'); input?.focus(); };
-  const closeModal = () => { modal.classList.remove('active'); backdrop.classList.remove('active'); };
+  const openModal  = () => { modal.classList.add('active'); backdrop.classList.add('active'); lenis?.stop(); document.body.style.overflow = 'hidden'; input?.focus(); };
+  const closeModal = () => { modal.classList.remove('active'); backdrop.classList.remove('active'); lenis?.start(); document.body.style.overflow = ''; };
 
   orb?.addEventListener('click', openModal);
   closeBtn?.addEventListener('click', closeModal);
