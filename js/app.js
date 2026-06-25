@@ -14,7 +14,8 @@ function initLenis() {
   lenis = new Lenis({
     duration: 1.2,
     easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true
+    smoothWheel: true,
+    prevent: node => node.closest('#ai-modal, #galeria-modal, .story-modal') !== null
   });
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add(time => lenis.raf(time * 1000));
