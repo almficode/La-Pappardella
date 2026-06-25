@@ -288,6 +288,16 @@ function initCarta() {
 
   if (window.innerWidth <= 768) {
     cartaPanel.style.transform = 'none';
+    // Build infinite marquee with all 8 cards
+    const grid = document.getElementById('carta-focus-grid');
+    if (grid) {
+      const cards = Array.from(grid.querySelectorAll('.carta-focus-card'));
+      const track = document.createElement('div');
+      track.className = 'carta-marquee-track';
+      cards.forEach(c => track.appendChild(c));
+      cards.forEach(c => { const cl = c.cloneNode(true); track.appendChild(cl); });
+      grid.appendChild(track);
+    }
     return;
   }
 

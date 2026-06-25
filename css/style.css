@@ -1492,26 +1492,34 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     margin: 1.5rem 5vw 3rem;
     align-self: unset;
   }
-  /* Carta dishes: 2×2 grid, first 4 cards only */
-  .carta-right { height: auto !important; min-height: 0; overflow: visible; }
+  /* Carta dishes: infinite marquee */
+  .carta-right { height: auto !important; min-height: 0; overflow: hidden; }
   .carta-focus-grid {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: auto auto !important;
+    display: block !important;
     height: auto !important;
-    min-height: 0;
-    gap: 2px;
+    overflow: hidden;
     padding: 0;
   }
-  .carta-focus-card {
-    position: relative;
-    overflow: hidden;
-    width: auto;
-    aspect-ratio: 1 / 1;
+  .carta-marquee-track {
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.5rem 0 1rem;
+    width: max-content;
+    animation: carta-marquee 22s linear infinite;
   }
-  /* Hide cards 5–8 on mobile */
-  .carta-focus-card:nth-child(n+5) { display: none; }
-  .carta-focus-card img {
+  @keyframes carta-marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .carta-marquee-track .carta-focus-card {
+    position: relative !important;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 56vw;
+    aspect-ratio: 1 / 1;
+    display: block !important;
+  }
+  .carta-marquee-track .carta-focus-card img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -1519,25 +1527,23 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     object-fit: cover;
     display: block;
   }
-  /* Solid dark bar at bottom — text always readable */
-  .carta-focus-info {
+  .carta-marquee-track .carta-focus-info {
     position: absolute !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
     top: auto !important;
-    inset: unset !important;
     opacity: 1 !important;
     transform: none !important;
-    background: rgba(0,0,0,0.62) !important;
+    background: rgba(0,0,0,0.6) !important;
     display: flex !important;
     flex-direction: column !important;
     justify-content: flex-end !important;
-    padding: 0.55rem 0.7rem !important;
+    padding: 0.5rem 0.65rem !important;
     pointer-events: none;
   }
-  .carta-focus-name { font-size: 0.73rem; color: #fff; }
-  .carta-focus-cat { font-size: 0.54rem; color: var(--gold); }
+  .carta-marquee-track .carta-focus-name { font-size: 0.72rem; color: #fff; }
+  .carta-marquee-track .carta-focus-cat  { font-size: 0.53rem; color: var(--gold); }
 
   /* ── Bridge ── */
   .carta-vinos-bridge { padding: 1.2rem 5vw; }
