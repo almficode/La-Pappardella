@@ -221,33 +221,80 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
 .nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s; }
 .nav-mobile {
-  display: none; position: fixed; inset: 0;
+  display: none;
+  position: fixed; inset: 0;
   background: var(--navy);
   z-index: 200;
   flex-direction: column;
-  align-items: center; justify-content: center;
-  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 3rem;
+  gap: 0;
+  overflow-y: auto;
 }
 .nav-mobile.is-open { display: flex; }
+
+/* Close button */
 .nav-mobile-close {
-  position: absolute; top: 1.5rem; right: 1.5rem;
-  width: 44px; height: 44px;
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  width: 48px; height: 48px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.18);
   border-radius: 50%;
   cursor: pointer;
   display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
 .nav-mobile-close span {
   position: absolute;
-  display: block; width: 18px; height: 1.5px;
+  display: block; width: 20px; height: 2px;
   background: var(--white); border-radius: 2px;
 }
 .nav-mobile-close span:first-child { transform: rotate(45deg); }
 .nav-mobile-close span:last-child  { transform: rotate(-45deg); }
-.nav-mobile ul { list-style: none; text-align: center; display: flex; flex-direction: column; gap: 1.5rem; }
-.nav-mobile a { font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--white); text-decoration: none; }
-.mobile-cta { margin-top: 1rem; }
+
+/* Section links */
+.nav-mobile ul {
+  list-style: none;
+  text-align: center;
+  display: flex; flex-direction: column;
+  gap: 0;
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.nav-mobile ul li {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.nav-mobile ul li a {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 8vw, 2.2rem);
+  font-weight: 300;
+  color: var(--white);
+  text-decoration: none;
+  padding: 1.1rem 0;
+  letter-spacing: 0.01em;
+  transition: color 0.2s;
+}
+.nav-mobile ul li a:active { color: var(--gold); }
+
+/* Reservar CTA inside nav */
+.mobile-cta {
+  margin-top: 2rem;
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy) !important;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.9rem 2.5rem;
+  border-radius: 2px;
+  text-align: center;
+  min-width: 200px;
+}
 
 /* ─── HERO BG IMAGE ─── */
 .hero-bg-wrap {
