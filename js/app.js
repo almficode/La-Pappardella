@@ -561,6 +561,14 @@ function initGaleria() {
   const backdrop = document.getElementById('galeria-backdrop');
   const closeBtn = document.getElementById('galeria-close');
 
+  // Duplicate each track so the marquee loops seamlessly
+  ['gal-track-1', 'gal-track-2'].forEach(id => {
+    const track = document.getElementById(id);
+    if (!track) return;
+    const items = Array.from(track.children);
+    items.forEach(item => track.appendChild(item.cloneNode(true)));
+  });
+
   function openGaleria(e) { e.preventDefault(); modal.classList.add('active'); backdrop.classList.add('active'); document.body.style.overflow = 'hidden'; }
   function closeGaleria() { modal.classList.remove('active'); backdrop.classList.remove('active'); document.body.style.overflow = ''; }
 

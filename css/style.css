@@ -1153,18 +1153,52 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--navy); transition: all 0.2s;
 }
 .galeria-close:hover { background: var(--navy); color: var(--white); }
-.galeria-grid-modal {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 280px;
-  gap: 8px;
-  padding: 2rem 5vw 4rem;
+/* Gallery marquee */
+.galeria-marquee {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem 0 4rem;
+  overflow: hidden;
+  /* pause on hover so user can look at a photo */
 }
-.gal-m { overflow: hidden; border-radius: 2px; cursor: pointer; }
-.gal-m img { transition: transform 0.6s var(--ease-out); }
-.gal-m:hover img { transform: scale(1.05); }
-.gal-m.tall { grid-row: span 2; }
-.gal-m.wide { grid-column: span 2; }
+.galeria-marquee:hover .galeria-track { animation-play-state: paused; }
+.galeria-row { overflow: hidden; width: 100%; }
+.galeria-track {
+  display: flex;
+  gap: 0.75rem;
+  width: max-content;
+  animation: gal-left 28s linear infinite;
+}
+.galeria-row--reverse .galeria-track {
+  animation: gal-right 24s linear infinite;
+}
+@keyframes gal-left {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes gal-right {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.galeria-track .gal-m {
+  flex-shrink: 0;
+  height: 280px;
+  width: auto;
+  overflow: hidden;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.galeria-track .gal-m img {
+  height: 100%;
+  width: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease-out);
+}
+.galeria-track .gal-m:hover img { transform: scale(1.06); }
 
 /* ═══════════════════════════════════════
    AI FLOATING ORB
@@ -1689,7 +1723,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .footer-bottom p { font-size: 0.7rem; }
 
   /* ── Galería / Modals ── */
-  .galeria-grid-modal { grid-template-columns: 1fr 1fr; }
+  .galeria-track .gal-m { height: 220px; }
   .ai-modal { width: 100%; border-radius: 12px 12px 0 0; }
 
   /* ── Cursor: ocultar en táctil ── */
@@ -1746,8 +1780,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   .hist-headline { font-size: clamp(1.8rem, 9vw, 2.4rem); }
   /* historia pillars already horizontal scroll — no override needed */
   .footer-inner { grid-template-columns: 1fr; }
-  .galeria-grid-modal { grid-template-columns: 1fr; }
-  .gal-m.tall, .gal-m.wide { grid-column: 1; grid-row: auto; }
+  .galeria-track .gal-m { height: 160px; }
+  .galeria-marquee { gap: 0.6rem; padding: 1rem 0 2rem; }
   .review-card { width: 88vw !important; }
   .section-reviews h2 { font-size: clamp(1.5rem, 7vw, 2rem); }
   .quote-text { font-size: clamp(1.3rem, 5.5vw, 2rem) !important; }
