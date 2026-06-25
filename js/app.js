@@ -495,53 +495,27 @@ function initReviews() {
     wrap.appendChild(track);
     return;
   }
+  // Desktop: 2-row marquee (row1 left, row2 right)
   const cards = Array.from(wrap.querySelectorAll('.review-card'));
   if (!cards.length) return;
 
-  // Wait for layout to settle, then measure
-  requestAnimationFrame(() => {
-    const W = wrap.offsetWidth;
-    const H = wrap.offsetHeight;
-    const CW = 320; // card width + some buffer
-    const CH = 190; // approx card height
+  const half = Math.ceil(cards.length / 2);
+  const row1cards = cards.slice(0, half);
+  const row2cards = cards.slice(half);
 
-    // Spread starting positions: loose grid with jitter
-    const startPos = [
-      { x: 0.03,  y: 0.05 },
-      { x: 0.36,  y: 0.02 },
-      { x: 0.68,  y: 0.06 },
-      { x: 0.06,  y: 0.52 },
-      { x: 0.38,  y: 0.55 },
-      { x: 0.70,  y: 0.50 },
-    ];
+  function makeRow(items, reverse) {
+    const row = document.createElement('div');
+    row.className = 'reviews-row' + (reverse ? ' reviews-row--reverse' : '');
+    const track = document.createElement('div');
+    track.className = 'reviews-row-track';
+    items.forEach(c => { c.style.opacity = '1'; track.appendChild(c); });
+    items.forEach(c => { track.appendChild(c.cloneNode(true)); });
+    row.appendChild(track);
+    return row;
+  }
 
-    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
-
-    cards.forEach((card, i) => {
-      const sp  = startPos[i] || { x: Math.random() * 0.7, y: Math.random() * 0.7 };
-      const sx  = clamp(sp.x * W, 0, W - CW);
-      const sy  = clamp(sp.y * H, 0, H - CH);
-
-      gsap.set(card, { x: sx, y: sy, autoAlpha: 1 });
-
-      // Each card drifts to a random offset and yoyos back — different speed/direction per card
-      const dx = clamp((Math.random() - 0.5) * 220, -sx, W - CW - sx);
-      const dy = clamp((Math.random() - 0.5) * 160, -sy, H - CH - sy);
-      const rot = (Math.random() - 0.5) * 7;
-      const dur = 9 + Math.random() * 7;
-
-      gsap.to(card, {
-        x: sx + dx,
-        y: sy + dy,
-        rotation: rot,
-        duration: dur,
-        ease: 'sine.inOut',
-        repeat: -1,
-        yoyo: true,
-        delay: i * 0.7,
-      });
-    });
-  });
+  wrap.appendChild(makeRow(row1cards, false));
+  wrap.appendChild(makeRow(row2cards, true));
 }
 
 function initFAQ() {
