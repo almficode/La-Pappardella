@@ -582,14 +582,14 @@ function getLocalReply(text) {
   return null;
 }
 
-async function sendToAI(message, apiKey) {
-  const resp = await fetch('https://api.anthropic.com/v1/messages', {
+async function sendToAI(message, history) {
+  const resp = await fetch('/api/chat', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' },
-    body: JSON.stringify({ model: 'claude-haiku-4-5-20251001', max_tokens: 400, system: RESTAURANT_CONTEXT, messages: [{ role: 'user', content: message }] })
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message, history })
   });
-  if (!resp.ok) throw new Error('API error');
-  return (await resp.json()).content[0].text;
+  if (!resp.ok) throw new Error('API error ' + resp.status);
+  return (await resp.json()).reply;
 }
 
 function formatMarkdown(text) {
@@ -605,7 +605,8 @@ function initAI() {
   const sendBtn  = document.getElementById('ai-send');
   const messages = document.getElementById('ai-messages');
   const chips    = document.getElementById('ai-chips');
-  const apiKeyInput = document.getElementById('ai-api-key');
+
+  const chatHistory = [];
 
   const openModal  = () => { modal.classList.add('active'); backdrop.classList.add('active'); input?.focus(); };
   const closeModal = () => { modal.classList.remove('active'); backdrop.classList.remove('active'); };
@@ -631,16 +632,13 @@ function initAI() {
     messages.scrollTop = messages.scrollHeight;
     if (input) input.value = '';
 
-    const local = getLocalReply(text);
-    const key   = apiKeyInput?.value?.trim();
     let reply;
-
-    if (key) {
-      try { reply = await sendToAI(text, key); }
-      catch { reply = local || 'Lo siento, hubo un error. Llama al **+34 928 513 614**.'; }
-    } else {
-      await new Promise(r => setTimeout(r, 700 + Math.random() * 500));
-      reply = local || 'Para una respuesta más personalizada introduce tu API key, o llama al **+34 928 513 614**. ¡Estaremos encantados!';
+    try {
+      reply = await sendToAI(text, chatHistory);
+      chatHistory.push({ role: 'user', content: text }, { role: 'assistant', content: reply });
+      if (chatHistory.length > 16) chatHistory.splice(0, 2);
+    } catch {
+      reply = getLocalReply(text) || 'Lo siento, no pude conectar ahora. Llama al **+34 928 513 614** y te atendemos encantados.';
     }
 
     typingRow.remove();
