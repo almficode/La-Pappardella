@@ -61,27 +61,29 @@
         <span></span><span></span><span></span>
       </button>
     </nav>
-    <div class="nav-mobile" id="nav-mobile">
-      <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Cerrar menú">
-        <span></span><span></span>
-      </button>
-      <ul>
-        <li><a href="#historia-section">Historia</a></li>
-        <li><a href="#menu-section">Carta</a></li>
-        <li><a href="#vinos-section">Vinos</a></li>
-        <li><a href="#" id="experiencia-mobile-btn">Experiencia</a></li>
-        <li><a href="#reserva-section">Reservas</a></li>
-      </ul>
-      <a href="tel:+34928513614" class="mobile-cta">Reservar Mesa</a>
-      <div class="lang-switcher-mobile">
-        <button class="lang-m-opt active" data-lang="es">🇪🇸 ES</button>
-        <button class="lang-m-opt" data-lang="en">🇬🇧 EN</button>
-        <button class="lang-m-opt" data-lang="fr">🇫🇷 FR</button>
-        <button class="lang-m-opt" data-lang="de">🇩🇪 DE</button>
-        <button class="lang-m-opt" data-lang="it">🇮🇹 IT</button>
-      </div>
-    </div>
   </header>
+
+  <!-- Mobile nav — outside header to avoid backdrop-filter stacking context -->
+  <div class="nav-mobile" id="nav-mobile">
+    <button class="nav-mobile-close" id="nav-mobile-close" aria-label="Cerrar menú">
+      <span></span><span></span>
+    </button>
+    <ul>
+      <li><a href="#historia-section">Historia</a></li>
+      <li><a href="#menu-section">Carta</a></li>
+      <li><a href="#vinos-section">Vinos</a></li>
+      <li><a href="#" id="experiencia-mobile-btn">Experiencia</a></li>
+      <li><a href="#reserva-section">Reservas</a></li>
+    </ul>
+    <a href="tel:+34928513614" class="mobile-cta">Reservar Mesa</a>
+    <div class="lang-switcher-mobile">
+      <button class="lang-m-opt active" data-lang="es">🇪🇸 ES</button>
+      <button class="lang-m-opt" data-lang="en">🇬🇧 EN</button>
+      <button class="lang-m-opt" data-lang="fr">🇫🇷 FR</button>
+      <button class="lang-m-opt" data-lang="de">🇩🇪 DE</button>
+      <button class="lang-m-opt" data-lang="it">🇮🇹 IT</button>
+    </div>
+  </div>
 
   <!-- ═══ HERO IMAGE ═══ -->
   <div class="hero-bg-wrap">
