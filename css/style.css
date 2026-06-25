@@ -1310,9 +1310,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* Right panel */
 .ai-modal-right {
-  display: flex; flex-direction: column;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
   background: var(--white);
-  height: 100%;
+  overflow: hidden;
+  min-height: 0;
 }
 .ai-modal-topbar {
   display: flex; justify-content: space-between; align-items: center;
@@ -1352,11 +1354,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* Messages */
 .ai-messages-area {
-  flex: 1; min-height: 0; overflow-y: auto;
+  overflow-y: scroll;
+  min-height: 0;
   padding: 1.5rem;
   display: flex; flex-direction: column; gap: 1rem;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 .ai-messages-area::-webkit-scrollbar { width: 4px; }
 .ai-messages-area::-webkit-scrollbar-thumb { background: rgba(26,39,68,0.15); border-radius: 2px; }
